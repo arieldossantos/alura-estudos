@@ -8,7 +8,7 @@ import io.github.arieldossantos.Orcamento;
 public abstract class TemplateDeImpostoCondicional implements Imposto {
 
     @Override
-    public float calcularImposto(Orcamento orcamento) {
+    public final float calcularImposto(Orcamento orcamento) {
         if(deveUsarMaximaTaxacao(orcamento)) {
             return maximaTaxacao(orcamento);
         } else {
