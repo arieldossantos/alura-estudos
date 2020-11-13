@@ -4,6 +4,12 @@ import io.github.arieldossantos.Orcamento;
 import io.github.arieldossantos.util.Item;
 
 public class IKCV extends TemplateDeImpostoCondicional {
+    public IKCV(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public IKCV() {
+    }
 
     private boolean temIemMaiorQue100ReaisNo(Orcamento orcamento) {
         for (Item item : orcamento.getItens()) {

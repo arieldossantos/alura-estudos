@@ -3,6 +3,12 @@ package io.github.arieldossantos.imposto;
 import io.github.arieldossantos.Orcamento;
 
 public class ICPP extends TemplateDeImpostoCondicional {
+    public ICPP(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public ICPP() {
+    }
 
     @Override
     protected float minimaTaxacao(Orcamento orcamento) {
