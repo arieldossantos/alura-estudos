@@ -13,16 +13,12 @@ public class CalculadoraDeOrcamento {
         Orcamento valorDaParada = new Orcamento(300);
         valorDaParada.adicionarItem(new Item("lapis", 200));
         valorDaParada.adicionarItem(new Item("caneta", 100));
-        Imposto iss = new ISS();
-        Imposto icms = new ICMS();
-        Imposto iccc = new ICCC();
+        Imposto iss = new ISS(new ICMS());
 
         Impostos imposto = new Impostos();
 
         //Calculo de impostos
-        System.out.println(imposto.calcular(valorDaParada, icms));
         System.out.println(imposto.calcular(valorDaParada, iss));
-        System.out.println(imposto.calcular(valorDaParada, iccc));
 
 
         //Calculo de descontos

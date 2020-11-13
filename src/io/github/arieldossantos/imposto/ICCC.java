@@ -2,7 +2,15 @@ package io.github.arieldossantos.imposto;
 
 import io.github.arieldossantos.Orcamento;
 
-public class ICCC implements Imposto {
+public class ICCC extends Imposto {
+
+    public ICCC(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public ICCC() {
+    }
+
     @Override
     public float calcularImposto(Orcamento orcamento) {
         float returnedValue = 0;
@@ -13,6 +21,6 @@ public class ICCC implements Imposto {
         } else {
             returnedValue =  (float) (orcamento.getValor() * 0.08) + 30;
         }
-        return returnedValue;
+        return returnedValue + calcularOutroImposto(orcamento);
     }
 }

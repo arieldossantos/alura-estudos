@@ -5,14 +5,21 @@ import io.github.arieldossantos.Orcamento;
 /**
  * Template method
  */
-public abstract class TemplateDeImpostoCondicional implements Imposto {
+public abstract class TemplateDeImpostoCondicional extends Imposto {
+
+    public TemplateDeImpostoCondicional(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
+    public TemplateDeImpostoCondicional() {
+    }
 
     @Override
     public final float calcularImposto(Orcamento orcamento) {
         if(deveUsarMaximaTaxacao(orcamento)) {
-            return maximaTaxacao(orcamento);
+            return maximaTaxacao(orcamento) + calcularOutroImposto(orcamento);
         } else {
-            return minimaTaxacao(orcamento);
+            return minimaTaxacao(orcamento) + calcularOutroImposto(orcamento);
         }
     }
 
